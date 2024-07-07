@@ -1,0 +1,40 @@
+.flex-box{
+    border:2px solid black;
+    width:350px;
+    height:400px;
+    background-color: whitesmoke;
+}
+
+.flex-container {
+    display: flex; /* Définit le conteneur comme un conteneur flex */
+    justify-content: space-between; /* Espacement égal entre les éléments */
+    align-items: center; /* Centre les éléments verticalement */
+    padding: 20px; /* Ajoute un peu de padding autour du conteneur */
+  }
+
+  h5.text{
+    text-align:center;
+    font-weight: bold;
+  }
+h6.text,p.text{
+    margin-left:15px;
+}
+
+p{
+    font-style:italic;
+}
+
+h4.text{
+    text-align:center;
+    font-weight: bold;
+}
+
+.btnc{
+    margin:auto;
+    text-align: center;
+}
+
+.btnc .btnco{
+    background-color: #003366;
+    width:150px;
+}

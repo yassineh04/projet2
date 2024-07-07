@@ -1,0 +1,38 @@
+.resd, .resp{
+    width:48%;
+    
+    
+    
+}
+
+.cust{
+    width:300px;
+    margin-left:20px;
+    border:1px solid black;
+    margin-bottom:20px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+   
+    
+}
+
+.resp{
+    margin-left:200px;
+
+}
+
+.btnre{
+    margin:auto;
+    text-align:center;
+}
+
+.btnre .btn{
+    margin:auto;
+    background-color: #003366;
+    width:150px;
+}
+

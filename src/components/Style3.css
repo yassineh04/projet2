@@ -1,0 +1,100 @@
+.horizantal-line{
+    width:90%;
+    height:2px;
+    background-color: black;
+    color:black;
+}
+
+.box-actu{
+    background-color:#CCCCCC;
+    width:350px;
+    height:1150px;
+    
+}
+
+
+.box-filtre{
+    margin-left:20px;
+}
+
+.drop .btn {
+    color:white; /* Couleur du texte du bouton */
+    border: 1px solid #003366; 
+    background-color: #003366;
+    border-radius: 5px;
+    width: 80px;
+    justify-content: flex-end;
+  }
+
+  .drop{
+    display: flex; /* Utiliser Flexbox pour l'alignement */
+    justify-content:end; /* Aligner à droite */
+    margin: 20px;
+    
+  }
+
+.box-act{
+    background-color:white;
+    width:1000px;
+    height:225px;
+    margin:100px;
+    border:1px solid black;
+}
+
+.container-actu{
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    margin:0px;
+    
+}
+
+.act{
+    margin-right:50px;
+    margin-top:10px;
+
+    
+}
+
+img.act{
+    width:180px;
+    height:170px;
+    margin-top:20px;
+    margin-left:20px;
+}
+
+.act .btn{
+    background-color: #003366;
+}
+
+.container-actu1{
+    background-color:white;
+    width:1000px;
+    height:225px;
+    margin:0px;
+    border:1px solid black;
+}
+
+div.act1{
+    margin-bottom:300px;
+    margin-left:250px;
+}
+
+.box-actsa{
+    background-color: whitesmoke;
+    width:1000px;
+    height:225px;
+    border:1px solid black;
+
+}
+
+.actp .btn{
+    background-color: #003366;
+}
+
+.actp{
+    display: flex; /* Utilise Flexbox pour le conteneur */
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    margin: 20px 0;
+}

@@ -1,0 +1,45 @@
+.horizantal-line{
+    width:90%;
+    height:2px;
+    background-color: black;
+    color:black;
+}
+
+.box-res{
+    background-color: #C0C0C0;
+    width:1000px;
+    height: 400px;
+    justify-content: center;
+    margin:auto;
+    align-items: center;
+    border:2px solid black;
+}
+
+.custom-margin{
+    margin-top:60px;
+    margin-left:80px;
+    width:300px;
+}
+
+.res{
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    
+}
+
+.res .btn{
+    background-color:#003366;
+    width:250px;
+}
+
+.card-btn{
+    background-color:#003366;
+    width:150px;
+    text-align: center;
+    margin:auto;
+}
+
+.card{
+    margin:auto;
+}
