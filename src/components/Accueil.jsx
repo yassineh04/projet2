@@ -1,5 +1,5 @@
 import './Style2.css'
-import React, {Component} from "react";
+import {React,Component} from "react";
 import {Nav,Navbar,Container,Button,Form,NavDropdown,FormControl} from 'react-bootstrap'
 import imageSrc from './ImageP1.png'
 import imageSrc2 from './ImageP2.jpg'
