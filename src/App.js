@@ -18,7 +18,7 @@ import { BrowserRouter as Router, Route, Switch, BrowserRouter, Routes } from 'r
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/projet2">
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/actualite" element={<Actualite />} />
