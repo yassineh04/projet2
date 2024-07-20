@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import imageSrc3 from './facebook.webp'
 import imageSrc4 from './instagram.jpeg'
 import imageSrc5 from './twitter.jpg'
+import { LinkContainer } from 'react-router-bootstrap';
 
 export default class Sujet1 extends Component{
     render(){
@@ -17,7 +18,7 @@ export default class Sujet1 extends Component{
                         <Navbar.Collapse id="navbarScroll">
                             <Nav
                                 className="me-auto my-2 my-lg-0"
-                                style={{ maxHeight: '100px' }}
+                                style={{ maxHeight: '100px', margin:'auto' }}
                                 navbarScroll
                             >
                                 <Nav.Link as={Link} to="/" className="mx-2">Accueil</Nav.Link>
@@ -26,21 +27,15 @@ export default class Sujet1 extends Component{
                                 <Nav.Link as={Link} to="/forum" className="mx-2">Forum</Nav.Link>
                                 <Nav.Link as={Link} to="/concours" className="mx-2">Concours</Nav.Link>
                             </Nav>
-                            <Form className="d-flex ms-auto">
-                                <Form.Control
-                                    type="search"
-                                    placeholder="Rechercher"
-                                    className="d-flex"
-                                    aria-label="Search"
-                                />
-                                <Button variant="outline-success" className="mx-3">Rechercher</Button>
-                            </Form>
+                            
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
                 <div>
                     <Breadcrumb>
-                        <Breadcrumb.Item href="#">Accueil</Breadcrumb.Item>
+                        <LinkContainer to="/">
+                            <Breadcrumb.Item href="#">Accueil</Breadcrumb.Item>
+                        </LinkContainer>
                         <Breadcrumb.Item active>Forum</Breadcrumb.Item>
                     </Breadcrumb>
                 </div>

@@ -43,6 +43,8 @@ h6{
     text-align: center;;
   }
 
+
+
 .blue{
     background-color:#003366;
     width:400px;
@@ -109,16 +111,19 @@ h4.prix{
 
 .butbl{
     background-color: #003366;
+    border: 1px solid black;
 }
 
 .butcl{
     background-color: #87CEEB;
     color:black;
+    border: 1px solid black;
 }
 
 .butjn{
     background-color: #FFCC00;
     color:black;
+    border: 1px solid black;
 }
 
 .horizantal-line{
@@ -204,7 +209,7 @@ h3{
 .left-section, .right-section, .center-section{
     flex:auto;
     padding:20px;
-    margin-top:50px;
+    margin-top:5px;
 }
 
 .center_section{

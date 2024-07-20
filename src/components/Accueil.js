@@ -14,7 +14,7 @@ export default class Accueil extends Component{
             <div>
                 <Navbar expand="lg" className="bg-body-tertiary">
                     <Container fluid>
-                        <Navbar.Brand href="#">Sky Aviation Club</Navbar.Brand>
+                        <Navbar.Brand href="#" style={{color:'whitesmoke'}}>Sky Aviation Club</Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll" />
                         <Navbar.Collapse id="navbarScroll">
                             <Nav
@@ -22,11 +22,11 @@ export default class Accueil extends Component{
                                 style={{ maxHeight: '100px',margin:'auto' }}
                                 navbarScroll
                             >
-                                <Nav.Link as={Link} to="/" className="mx-2">Accueil</Nav.Link>
-                                <Nav.Link as={Link} to="/instructeur" className="mx-2">Nos Instructeurs</Nav.Link>
-                                <Nav.Link as={Link} to="/decouvrez" className="mx-2">Decouvrez le ciel</Nav.Link>
-                                <Nav.Link as={Link} to="/forum" className="mx-2">Forum</Nav.Link>
-                                <Nav.Link as={Link} to="/concours" className="mx-2">Concours</Nav.Link>
+                                <Nav.Link as={Link} to="/" className="mx-2" style={{color:'whitesmoke'}}>Accueil</Nav.Link>
+                                <Nav.Link as={Link} to="/instructeur" className="mx-2" style={{color:'whitesmoke'}}>Nos Instructeurs</Nav.Link>
+                                <Nav.Link as={Link} to="/decouvrez" className="mx-2" style={{color:'whitesmoke'}}>Decouvrez le ciel</Nav.Link>
+                                <Nav.Link as={Link} to="/forum" className="mx-2" style={{color:'whitesmoke'}}>Forum</Nav.Link>
+                                <Nav.Link as={Link} to="/concours" className="mx-2" style={{color:'whitesmoke'}}>Concours</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

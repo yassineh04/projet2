@@ -1,13 +1,44 @@
 import './Style4.css'
 import React, {Component} from "react";
-import {Nav,Navbar,Container,Button,Form,NavDropdown,FormControl,Breadcrumb,FormRange,Dropdown,DropdownButton,ButtonGroup,Row,Col} from 'react-bootstrap'
+import {Nav,Navbar,Alert,Container,Button,Form,NavDropdown,FormControl,Breadcrumb,FormRange,Dropdown,DropdownButton,ButtonGroup,Row,Col} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import imageSrc3 from './facebook.webp'
 import imageSrc4 from './instagram.jpeg'
 import imageSrc5 from './twitter.jpg'
+import { LinkContainer } from 'react-router-bootstrap';
+
+
 
 export default class Sujet extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            comment: '',
+            showAlert: false,
+            showAlertS:false,
+        };
+    }
+
+    handleCommentChange = (event) => {
+        this.setState({ comment: event.target.value });
+    }
+
+    handleSubmit = () => {
+        const { comment } = this.state;
+        if (comment.trim() === '') {
+            this.setState({ showAlert: true,showAlertS:false });
+        } else {
+            this.setState({ showAlert: false,showAlertS:true });
+            this.setState({comment:''});
+
+            setTimeout(() => this.setState({showAlertS:false}),3000);
+        }
+    }
+
+
     render(){
+        const { comment, showAlert, showAlertS } = this.state;
+
         return(
             <div>
                 <Navbar expand="lg" className="bg-body-tertiary">
@@ -17,7 +48,7 @@ export default class Sujet extends Component{
                         <Navbar.Collapse id="navbarScroll">
                             <Nav
                                 className="me-auto my-2 my-lg-0"
-                                style={{ maxHeight: '100px' }}
+                                style={{ maxHeight: '100px', margin:'auto' }}
                                 navbarScroll
                             >
                                 <Nav.Link as={Link} to="/" className="mx-2">Accueil</Nav.Link>
@@ -26,29 +57,24 @@ export default class Sujet extends Component{
                                 <Nav.Link as={Link} to="/forum" className="mx-2">Forum</Nav.Link>
                                 <Nav.Link as={Link} to="/concours" className="mx-2">Concours</Nav.Link>
                             </Nav>
-                            <Form className="d-flex ms-auto">
-                                <Form.Control
-                                    type="search"
-                                    placeholder="Rechercher"
-                                    className="d-flex"
-                                    aria-label="Search"
-                                />
-                                <Button variant="outline-success" className="mx-3">Rechercher</Button>
-                            </Form>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
                 <div>
                     <Breadcrumb>
-                        <Breadcrumb.Item href="#">Accueil</Breadcrumb.Item>
-                        <Breadcrumb.Item href="#">Forum</Breadcrumb.Item>
-                        <Breadcrumb.Item active>Sujet n</Breadcrumb.Item>
+                        <LinkContainer to="/">
+                            <Breadcrumb.Item href="#">Accueil</Breadcrumb.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/forum">
+                            <Breadcrumb.Item href="#">Forum</Breadcrumb.Item>
+                        </LinkContainer>
+                        <Breadcrumb.Item active>Sujet 1</Breadcrumb.Item>
                     </Breadcrumb>
                 </div>
                 <br/>
                 <br/>
                 <br/>
-                <h3>Sujet n</h3>
+                <h3>Sujet 1</h3>
                 <br/>
                 <div>
                     <hr className="horizantal-line" />
@@ -63,7 +89,7 @@ export default class Sujet extends Component{
                             <p className="sujh">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolores natus quidem consequatur ea at dolorum laboriosam maiores unde! Quas officia molestias suscipit totam atque at labore? Qui, iure sequi.</p>
                         </div>
                         <div className="row2-date" style={{textAlign:'right'}}>
-                            <h5 className="sujh">19 Mars 2024</h5>
+                            <h5 className="sujh">14 Juin 2024</h5>
                         </div>
                     </div>
                     <br/>
@@ -79,7 +105,7 @@ export default class Sujet extends Component{
                             <p className="sujh">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolores natus quidem consequatur ea at dolorum laboriosam maiores unde! Quas officia molestias suscipit totam atque at labore? Qui, iure sequi.</p>
                         </div>
                         <div className="row2-date" style={{textAlign:'right'}}>
-                            <h5 className="sujh">19 Mars 2024</h5>
+                            <h5 className="sujh">15 Juin 2024</h5>
                         </div>
                     </div>
                     <br/>
@@ -95,7 +121,7 @@ export default class Sujet extends Component{
                             <p className="sujh">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolores natus quidem consequatur ea at dolorum laboriosam maiores unde! Quas officia molestias suscipit totam atque at labore? Qui, iure sequi.</p>
                         </div>
                         <div className="row2-date" style={{textAlign:'right'}}>
-                            <h5 className="sujh">19 Mars 2024</h5>
+                            <h5 className="sujh">15 Juin 2024</h5>
                         </div>
                     </div>
                     <br/>
@@ -111,7 +137,7 @@ export default class Sujet extends Component{
                             <p className="sujh">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolores natus quidem consequatur ea at dolorum laboriosam maiores unde! Quas officia molestias suscipit totam atque at labore? Qui, iure sequi.</p>
                         </div>
                         <div className="row2-date" style={{textAlign:'right'}}>
-                            <h5 className="sujh">19 Mars 2024</h5>
+                            <h5 className="sujh">17 Juin 2024</h5>
                         </div>
                     </div>
                     <br/>
@@ -119,22 +145,29 @@ export default class Sujet extends Component{
                 </div>
                 <br/>
                 <br/> 
+                {showAlert && <Alert style={{textAlign:'center',fontSize:'15px',fontWeight:'bold',margin:'auto', width:'700px'}} variant="danger">Le champ de réponse est vide.</Alert>}
+                {showAlertS && <Alert style={{textAlign:'center',fontSize:'15px',fontWeight:'bold',margin:'auto', width:'700px'}} variant="success">Votre reponse a ete envoye avec succes! Votre message sera examine par notre equipe puis sera prochainement enregistre dans le forum. </Alert>}
                 <br/>
                 <div className="box-uti">
                     <Row>
                         <Col>
-                            <Form.Control className="formsuj" size="lg" type="text" placeholder="Ecrivez votre reponse..." />
+                            <Form.Group controlId="commentTextarea" className="mb-3">
+                                <Form.Label></Form.Label>
+                                <Form.Control
+                                    as="textarea"
+                                    placeholder="Ecrivez votre reponse..."
+                                    value={comment}
+                                    onChange={this.handleCommentChange}
+                                    style={{width:'1250px',height:'270px',margin:'auto'}}
+                                />
+                            </Form.Group>
                         </Col>
                     </Row>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    
+                   
                 </div>
                 <br/>
                 <div className="for">
-                    <Button as={Link} to="/forum" className="for" variant="primary">Poster votre reponse</Button>
+                    <Button className="for" variant="primary" onClick={this.handleSubmit}>Poster votre reponse</Button>
                 </div>
                 <br/>
                 <br/>

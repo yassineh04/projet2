@@ -1,14 +1,84 @@
 import './Style5.css'
 import React, {Component} from "react";
-import {Nav,Navbar,Container,Button,Form,NavDropdown,FormControl,Breadcrumb,FormRange,Dropdown,DropdownButton,ButtonGroup,Row,Col,FormSelect} from 'react-bootstrap'
+import {Nav,Navbar,Container,Button,Form,Alert,NavDropdown,FormControl,Breadcrumb,FormRange,Dropdown,DropdownButton,ButtonGroup,Row,Col,FormSelect} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import imageSrc3 from './facebook.webp'
 import imageSrc4 from './instagram.jpeg'
 import imageSrc5 from './twitter.jpg'
+import { LinkContainer } from 'react-router-bootstrap';
 
 
 export default class Planifier extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            prenom:'',
+            nom:'',
+            email:'',
+            date:'',
+            errors:{},
+            showAlert:false,
+            showAlertError:false,
+        };
+
+        this.handleSubmit=this.handleSubmit.bind(this);
+    }
+
+    componentDidMount(){
+        const today=new Date();
+        const day=String(today.getDate()).padStart(2,'0');
+        const month=String(today.getMonth()+1).padStart(2,'0');
+        const year=String(today.getFullYear());
+        const todayString='${year}-${month}-${day}';
+        this.setState({date:todayString});
+    }
+
+    validateForm=() =>{
+        const {prenom,nom,email}=this.state;
+        let errors={};
+        let formIsValid = true;
+
+        if (!prenom){
+            formIsValid=false;
+            errors['prenom'] = 'Le prénom est requis';
+        }
+
+        if (!nom){
+            formIsValid=false;
+            errors['nom'] = 'Le nom est requis';
+        }
+
+        if (!email){
+            formIsValid=false;
+            errors['email'] = 'L\'email est requis';
+        }
+
+      
+
+        this.setState({errors});
+        return formIsValid;
+
+
+    };
+
+    handleSubmit=(event) =>{
+        event.preventDefault();
+        if(this.validateForm()){
+            console.log('Reservation effectue avec succes');
+            this.setState({showAlert:true,showAlertError:false});
+        } else{
+            this.setState({showAlertError:true,showAlert:false});
+        }
+    };
+
+    
+
+
+
     render(){
+        const {prenom,nom,email,date,errors,showAlert,showAlertError}=this.state;
+
+
         return(
             <div>
                 <Navbar expand="lg" className="bg-body-tertiary">
@@ -33,9 +103,13 @@ export default class Planifier extends Component{
                 </Navbar>
                 <div>
                     <Breadcrumb>
+                    <LinkContainer to="/">
                         <Breadcrumb.Item href="#">Accueil</Breadcrumb.Item>
-                        <Breadcrumb.Item href="#">Concours</Breadcrumb.Item>
-                        <Breadcrumb.Item active>Reserver Concours</Breadcrumb.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/instructeur">
+                        <Breadcrumb.Item href="#">Instructeur</Breadcrumb.Item>
+                    </LinkContainer>
+                        <Breadcrumb.Item active>Planifier</Breadcrumb.Item>
                     </Breadcrumb>
                 </div>
                 <br/>
@@ -48,16 +122,28 @@ export default class Planifier extends Component{
                     <hr className="horizantal-line" />
                 </div>
                 <br/>
+                {showAlert && (
+                    <Alert style={{textAlign:'center',fontSize:'15px',fontWeight:'bold',margin:'auto', width:'700px'}} variant="success" onClose={() => this.setState({showAlert:false})} dismissible>Votre Reservation a ete effectue avec succes!</Alert>
+                )}
+
+                {showAlertError && (
+                    <Alert style={{textAlign:'center',fontSize:'15px',fontWeight:'bold',margin:'auto', width:'700px'}} variant="danger" onClose={() => this.setState({ showAlertError: false })} dismissible>
+                        Il y a des erreurs dans le formulaire. Veuillez corriger les erreurs et réessayer.
+                    </Alert>
+                )}
                 <br/>
                 <div className="box-res">
     
-                    <Form>
+                    <Form onSubmit={this.handleSubmit}>
                         <Row>
                             <Col>
-                                <Form.Control placeholder="Prenom" className="custom-margin" />
+                                
+                                <Form.Control name="prenom" onChange={(e) => this.setState({prenom: e.target.value})} value={prenom }placeholder="Prenom" className="custom-margin" />
+                                {errors.prenom && <p className="error-text">{errors.prenom}</p>}
                             </Col>
                             <Col>
-                                <Form.Control placeholder="Nom" className="custom-margin" />
+                                <Form.Control name="nom" value={nom} onChange={(e) => this.setState({nom: e.target.value})} placeholder="Nom" className="custom-margin" />
+                                {errors.nom && <p className="error-text">{errors.nom}</p>}
                             </Col>
                         </Row>
                     </Form>
@@ -65,10 +151,19 @@ export default class Planifier extends Component{
                     <Form>
                         <Row>
                             <Col>
-                                <input type="date" className="custom-margin"></input>
+                                <Form.Group controlId="formDate">
+                                    
+                                    <Form.Control
+                                        type="date"
+                                        value={date}
+                                        onChange={(e) => this.setState(e.target.value)}
+                                        className="custom-margin"
+                                    />
+                                </Form.Group>
+                                
                             </Col>
                             <Col>
-                            <input type="time" className="custom-margin"></input>
+                                <Form.Control type="time" className="custom-margin"/>
                             </Col>
                         </Row>
                     </Form>
@@ -76,22 +171,26 @@ export default class Planifier extends Component{
                     <Form>
                         <Row>
                             <Col>
-                            <select aria-label="Choisissez un instructeur" className="custom-margin" placeholder="Choisissez un instructeur">
-                                <option>Choisissez un instructeur</option>
-                                <option value="Alexandre Forbes">Alexandre Forbes</option>
-                                <option value="David Bellamy">David Bellamy</option>
-                                <option value="Andrew Lewis">Andrew Lewis</option>
-                                <option value="Douglas Palmer">Douglas Palmer</option>
-                            </select>
+                                <Form.Group as={Col} controlId="formGridState">
+                                    <Form.Control  as="select" defaultValue="Choose..." className="custom-margin">
+                                        <option>Choisissez votre instructeur</option>
+                                        <option>David Bellamy</option>
+                                        <option>Alexandre Forbes</option>
+                                        <option>Douglas Palmer</option>
+                                        <option>Andrew Lewis</option>
+                                    </Form.Control>
+                                    
+                                </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Control placeholder="Email" className="custom-margin" />
+                                <Form.Control name="email" value={email} onChange={(e) => this.setState({email: e.target.value})} placeholder="Email" className="custom-margin" />
+                                {errors.email && <p className="error-text">{errors.email}</p>}
                             </Col>
                         </Row>
                     </Form>
                     <br/>
                     <div className="res">
-                            <Button className="forum" variant="primary">Reserver</Button>
+                            <Button onClick={this.handleSubmit} className="forum" variant="primary">Reserver</Button>
                     </div>
 
                 </div>

@@ -5,9 +5,86 @@ import { Link } from 'react-router-dom';
 import imageSrc3 from './facebook.webp'
 import imageSrc4 from './instagram.jpeg'
 import imageSrc5 from './twitter.jpg'
+import  Alert  from 'react-bootstrap/Alert';
 
 export default class ReserverA extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            prenom:'',
+            nom:'',
+            email:'',
+            tel:'',
+            carte:'',
+            cvv:'',
+            errors:{},
+            showAlert:false,
+            showErrorAlert:false,
+        };
+
+        this.handleSubmit=this.handleSubmit.bind(this);
+    }
+
+    validateForm=() =>{
+        const {prenom,nom,email,tel,carte,cvv}=this.state;
+        let errors={};
+        let formIsValid = true;
+
+        if (!prenom){
+            formIsValid=false;
+            errors["prenom"]="Le prenom est requis";
+        }
+
+        if (!nom){
+            formIsValid=false;
+            errors["nom"]="Le nom est requis";
+        } 
+
+        if (!email){
+            formIsValid=false;
+            errors["email"]="L'email est requis";
+        }
+        if (!tel){
+            formIsValid=false;
+            errors["tel"]="Le numero de telephone est requis";
+        }
+
+        if (!carte){
+            formIsValid=false;
+            errors["carte"]="Le numero de carte est requis";
+        }
+
+        if (!cvv){
+            formIsValid=false;
+            errors["cvv"]="Le CVV est requis";
+        }
+
+        this.setState({errors});
+        return formIsValid;
+    };
+
+    handleSubmit= (event) =>{
+        event.preventDefault();
+        if (this.validateForm()) {
+            console.log('Reservation effectue avec succes');
+            this.setState({showAlert:true, showErrorAlert:false});
+        } else{
+            this.setState({showErrorAlert:true, showAlert:false});
+        }
+    };
+
+    handleChange= (event) =>{
+        this.setState({
+            [event.target.name]:event.target.value,
+            });
+    }
+
+
+
     render(){
+        const {prenom,nom,email,tel,carte,cvv,errors,showAlert,showErrorAlert}=this.state;
+
+
         return(
             <div>
                 <Navbar expand="lg" className="bg-body-tertiary">
@@ -46,14 +123,26 @@ export default class ReserverA extends Component{
                 </div>
                 <br/>
                 <br/>
+                {showAlert && (
+                    <Alert style={{textAlign:'center',fontSize:'15px',fontWeight:'bold',margin:'auto', width:'700px'}} variant="success" onClose={() => this.setState({showAlert:false})} dismissible>Votre Reservation a ete effectue avec succes!</Alert>
+                )}
+
+                {showErrorAlert && (
+                    <Alert style={{textAlign:'center',fontSize:'15px',fontWeight:'bold',margin:'auto', width:'700px'}} variant="danger" onClose={() => this.setState({ showErrorAlert: false })} dismissible>
+                        Il y a des erreurs dans le formulaire. Veuillez corriger les erreurs et réessayer.
+                    </Alert>
+                )}
+                <br/>
                 <div className="box-res">
-                    <Form>
+                    <Form onSubmit={this.handleSubmit}>
                         <Row>
                             <Col>
-                                <Form.Control placeholder="Prenom" className="custom-margin" />
+                                <Form.Control name="prenom" value={prenom} onChange={(e) => this.setState({prenom: e.target.value})} placeholder="Prenom" className="custom-margin" />
+                                {errors.prenom && <p className="error-text">{errors.prenom}</p>}
                             </Col>
                             <Col>
-                                <Form.Control placeholder="Nom" className="custom-margin" />
+                                <Form.Control name="nom" value={nom} onChange={(e) => this.setState({nom: e.target.value})} placeholder="Nom" className="custom-margin" />
+                                {errors.nom && <p className="error-text">{errors.nom}</p>}
                             </Col>
                         </Row>
                     </Form>
@@ -61,10 +150,12 @@ export default class ReserverA extends Component{
                     <Form>
                         <Row>
                             <Col>
-                                <Form.Control placeholder="Email" className="custom-margin" />
+                                <Form.Control name="email" value={email} onChange={(e) => this.setState({email: e.target.value})} placeholder="Email" className="custom-margin" />
+                                {errors.email && <p className="error-text">{errors.email}</p>}
                             </Col>
                             <Col>
-                                <Form.Control placeholder="Numero de tel" className="custom-margin" />
+                                <Form.Control name="tel" value={tel} onChange={(e) => this.setState({tel: e.target.value})} placeholder="Numero de tel" className="custom-margin" />
+                                {errors.tel && <p className="error-text">{errors.tel}</p>}
                             </Col>
                         </Row>
                     </Form>
@@ -72,17 +163,20 @@ export default class ReserverA extends Component{
                     <Form>
                         <Row>
                             <Col>
-                                <Form.Control placeholder="Numero de la carte" className="custom-margin" />
+                                <Form.Control name="carte" value={carte} onChange={(e) => this.setState({carte: e.target.value})} placeholder="Numero de la carte" className="custom-margin" />
+                                {errors.carte && <p className="error-text">{errors.carte}</p>}
                             </Col>
                             <Col>
-                                <Form.Control placeholder="CVV" className="custom-margin" />
+                                <Form.Control name="cvv" value={cvv} onChange={(e) => this.setState({cvv: e.target.value})} placeholder="CVV" className="custom-margin" />
+                                {errors.cvv && <p className="error-text">{errors.cvv}</p>}
                             </Col>
                         </Row>
+                    
+                        <br/>
+                        <div className="res">
+                            <Button className="forum" variant="primary" onClick={this.handleSubmit}>Reserver</Button>
+                        </div>
                     </Form>
-                    <br/>
-                    <div className="res">
-                            <Button className="forum" variant="primary">Reserver</Button>
-                    </div>
 
                 </div>
                 <br/>

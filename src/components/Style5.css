@@ -8,11 +8,12 @@
 .box-res{
     background-color: #C0C0C0;
     width:1000px;
-    height: 400px;
+    height: 500px;
     justify-content: center;
     margin:auto;
     align-items: center;
     border:2px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .custom-margin{
@@ -42,4 +43,10 @@
 
 .card{
     margin:auto;
+}
+
+.accordionT{
+    font-weight:bolder;
+    background-color:#C0C0C0;
+    cursor:pointer;
 }

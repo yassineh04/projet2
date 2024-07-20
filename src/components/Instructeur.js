@@ -9,6 +9,7 @@ import imageSrc7 from './ImageP4.webp'
 import imageSrc8 from './ImageP5.webp'
 import imageSrc9 from './ImageP6.avif'
 import imageSrc10 from './ImageP7.avif'
+import { LinkContainer } from 'react-router-bootstrap';
 
 export default class Instructeur extends Component{
     render(){
@@ -36,7 +37,9 @@ export default class Instructeur extends Component{
                 </Navbar>
                 <div>
                     <Breadcrumb>
-                        <Breadcrumb.Item as={Link} to="/">Accueil</Breadcrumb.Item>
+                    <LinkContainer to="/">
+                        <Breadcrumb.Item>Accueil</Breadcrumb.Item>
+                    </LinkContainer>
                         <Breadcrumb.Item active>Instructeur</Breadcrumb.Item>
                     </Breadcrumb>
                 </div>
@@ -51,7 +54,7 @@ export default class Instructeur extends Component{
                 <br/>
                 <div className="container-in">
                     <div className="row">
-                        <Card style={{ width: '18rem',border:'1px solid black' }}>
+                        <Card style={{ width: '23rem',boxShadow:' 0 4px 8px rgba(0, 0, 0, 0.2)' }}>
                             <Card.Img variant="top" src={imageSrc7} style={{height:'17rem'}}/>
                             <Card.Body>
                                 <Card.Title>Alexandre Forbes</Card.Title>
@@ -61,7 +64,7 @@ export default class Instructeur extends Component{
                         </Card> 
                     </div>
                     <div className="row">
-                        <Card style={{ width: '18rem',border:'1px solid black' }}>
+                        <Card style={{ width: '23rem',boxShadow:' 0 4px 8px rgba(0, 0, 0, 0.2)' }}>
                             <Card.Img variant="top" src={imageSrc8} style={{height:'17rem'}}/>
                             <Card.Body>
                                 <Card.Title>David Bellamy</Card.Title>
@@ -75,7 +78,7 @@ export default class Instructeur extends Component{
                 <br/>
                 <div className="container-in">
                     <div className="row">
-                        <Card style={{ width: '18rem' ,border:'1px solid black'}}>
+                        <Card style={{ width: '23rem' ,boxShadow:' 0 4px 8px rgba(0, 0, 0, 0.2)'}}>
                             <Card.Img variant="top" src={imageSrc9} style={{height:'17rem'}}/>
                             <Card.Body>
                                 <Card.Title>Andrew Lewis</Card.Title>
@@ -85,8 +88,8 @@ export default class Instructeur extends Component{
                         </Card> 
                     </div>
                     <div className="row">
-                        <Card style={{ width: '18rem',border:'1px solid black' }}>
-                            <Card.Img variant="top" src={imageSrc7} style={{height:'17rem'}} />
+                        <Card style={{ width: '23rem',boxShadow:' 0 4px 8px rgba(0, 0, 0, 0.2)' }}>
+                            <Card.Img variant="top" src={imageSrc10} style={{height:'17rem'}} />
                             <Card.Body>
                                 <Card.Title>Douglas Palmer</Card.Title>
                                 <Card.Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate accusamus deserunt, nisi in cumque sapiente modi. Laborum ipsa sapiente nesciunt architecto, consectetur blanditiis voluptatem tempore distinctio, debitis, amet dolore. Ratione.</Card.Text>
