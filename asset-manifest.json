@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/projet2/static/css/main.aa7cd38d.css",
+    "main.js": "/projet2/static/js/main.d886dca1.js",
+    "static/media/Actu1.jpeg": "/projet2/static/media/Actu1.4d0d3dce12d31e79b9e8.jpeg",
+    "static/media/ImageP8.png": "/projet2/static/media/ImageP8.19c12daa0529f97e7d43.png",
+    "static/media/ImageP12.jpeg": "/projet2/static/media/ImageP12.8b8cfd41f856d31c826c.jpeg",
+    "static/media/Actu4.png": "/projet2/static/media/Actu4.04683e5eff0366e89fb9.png",
+    "static/media/ImageP13.jpg": "/projet2/static/media/ImageP13.12e35719cbef77a4e54d.jpg",
+    "static/media/ImageP9.jpg": "/projet2/static/media/ImageP9.3f5c79c7583bbbcf14bc.jpg",
+    "static/media/Actu3.jpg": "/projet2/static/media/Actu3.adafa1d24eca62fe51ea.jpg",
+    "static/media/ImageP1.png": "/projet2/static/media/ImageP1.7e2ef073e9176238d900.png",
+    "static/media/ImageP10.jpg": "/projet2/static/media/ImageP10.6b51d777a54642ffe315.jpg",
+    "static/media/Actu5.webp": "/projet2/static/media/Actu5.94bebb3c16b5bd48446f.webp",
+    "static/media/ImageP4.webp": "/projet2/static/media/ImageP4.8e654c86f103022c95e6.webp",
+    "static/media/ImageP11.avif": "/projet2/static/media/ImageP11.cd60e0580a60d4aa452f.avif",
+    "static/media/Micro1.jpg": "/projet2/static/media/Micro1.f83a758e3cfaa081e991.jpg",
+    "static/media/twitter.jpg": "/projet2/static/media/twitter.099d09f43c8d08dfdbc3.jpg",
+    "static/media/Actu2.jpg": "/projet2/static/media/Actu2.6567e34dd5a2d04af466.jpg",
+    "static/media/ImageP3.jpeg": "/projet2/static/media/ImageP3.c80126999a9afde15b0f.jpeg",
+    "static/media/instagram.jpeg": "/projet2/static/media/instagram.33acd4d77a3fa29928c3.jpeg",
+    "static/media/ImageP6.avif": "/projet2/static/media/ImageP6.9419cd151267b5490f28.avif",
+    "static/media/ImageP7.avif": "/projet2/static/media/ImageP7.b730ec4086d30d476301.avif",
+    "static/media/ImageP5.webp": "/projet2/static/media/ImageP5.4e16c3be83e8c2c8ae74.webp",
+    "static/media/facebook.webp": "/projet2/static/media/facebook.dc9a0ce8f67738dca484.webp",
+    "index.html": "/projet2/index.html",
+    "main.aa7cd38d.css.map": "/projet2/static/css/main.aa7cd38d.css.map",
+    "main.d886dca1.js.map": "/projet2/static/js/main.d886dca1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa7cd38d.css",
+    "static/js/main.d886dca1.js"
+  ]
+}
