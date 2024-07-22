@@ -1,5 +1,5 @@
 {
-  "homepage": "https://yassineh04.github.io/projet2",
+  "homepage": "https://yassineh04.github.io/Projet_2-SEG3525",
   "name": "projet2",
   "version": "0.1.0",
   "private": true,
@@ -37,7 +37,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "master -b main -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
