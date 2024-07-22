@@ -9,6 +9,7 @@
     background-color:#CCCCCC;
     width:350px;
     height:1150px;
+    margin-bottom:50px;
     
 }
 
@@ -72,6 +73,7 @@ img.act{
     width:1000px;
     height:225px;
     margin:0px;
+    
     border:1px solid black;
 }
 
@@ -85,6 +87,8 @@ div.act1{
     width:1000px;
     height:225px;
     border:1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom:25px;
 
 }
 

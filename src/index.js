@@ -19,6 +19,7 @@ import Planifier from './components/Planifier';
 import Sujet1 from './components/Sujet1';
 import Sujet2 from './components/Sujet2';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './i18n'
 
 
 

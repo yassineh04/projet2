@@ -16,6 +16,7 @@
     width: 450px;
     height: 350px;
     margin-left:250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 h6{
@@ -140,7 +141,8 @@ h3{
 .img-fluid-img2{
     width:450px;
     height:350px;
-    margin-left:110px
+    margin-left:110px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
 }
 
 .image-text-container {

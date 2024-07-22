@@ -2,9 +2,9 @@ import './Style5.css';
 import React, { useState } from "react";
 import { Nav, Navbar, Container, Modal, Button, Card, Breadcrumb, Accordion } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import imageSrc3 from './facebook.webp';
-import imageSrc4 from './instagram.jpeg';
-import imageSrc5 from './twitter.jpg';
+import { FaMapMarkerAlt,FaPhone,FaFacebook, FaInstagram, FaTwitter} from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import imageSrc11 from './ImageP8.png';
 import imageSrc12 from './ImageP9.jpg';
 import imageSrc13 from './ImageP10.jpg';
@@ -43,18 +43,18 @@ function Decouvrez() {
     };
 
     return (
-        <div>
+        <div style={{fontFamily:' "Open Sans", Arial, sans-serif'}}>
             <Navbar expand="lg" className="bg-body-tertiary">
                 <Container fluid>
-                    <Navbar.Brand href="#">Sky Aviation Club</Navbar.Brand>
+                    <Navbar.Brand href="#" style={{color:'whitesmoke'}}>Sky Aviation Club</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px', margin: 'auto' }} navbarScroll>
-                            <Nav.Link as={Link} to="/" className="mx-2">Accueil</Nav.Link>
-                            <Nav.Link as={Link} to="/instructeur" className="mx-2">Nos Instructeurs</Nav.Link>
-                            <Nav.Link as={Link} to="/decouvrez" className="mx-2">Decouvrez le ciel</Nav.Link>
-                            <Nav.Link as={Link} to="/forum" className="mx-2">Forum</Nav.Link>
-                            <Nav.Link as={Link} to="/concours" className="mx-2">Concours</Nav.Link>
+                            <Nav.Link as={Link} to="/" className="mx-2" style={{color:'whitesmoke'}}>Accueil</Nav.Link>
+                            <Nav.Link as={Link} to="/instructeur" className="mx-2" style={{color:'whitesmoke'}}>Nos Instructeurs</Nav.Link>
+                            <Nav.Link as={Link} to="/decouvrez" className="mx-2" style={{color:'whitesmoke'}}>Decouvrez le ciel</Nav.Link>
+                            <Nav.Link as={Link} to="/forum" className="mx-2" style={{color:'whitesmoke'}}>Forum</Nav.Link>
+                            <Nav.Link as={Link} to="/concours" className="mx-2" style={{color:'whitesmoke'}}>Concours</Nav.Link>
                         </Nav>
                         <Button variant="outline-success" onClick={handleShowCart}>
                             <FaShoppingCart /> Panier ({cart.length})
@@ -67,7 +67,7 @@ function Decouvrez() {
                     <LinkContainer to="/">
                         <Breadcrumb.Item href="#">Accueil</Breadcrumb.Item>
                     </LinkContainer>
-                        <Breadcrumb.Item active>Decouvrez</Breadcrumb.Item>
+                        <Breadcrumb.Item active>Decouvrez le ciel</Breadcrumb.Item>
                     </Breadcrumb>
                 </div>
             <br />
@@ -242,36 +242,50 @@ function Decouvrez() {
             <br />
             <br />
             <div className="bas">
-                <div className="left-section">
-                    <div className="bass">
-                        <h5>SkyAviation Club</h5>
-                        <br />
-                        <br />
-                        <p>Suivez-nous</p>
+                    <div className="left-section">
+                        <div className="bass">
+                            <h5>SkyAviation Club</h5>
+                            <br/>
+                            <br/>
+                            <p>Suivez-nous</p>
+                    
+                        </div>
+                        <br/>
+                        <div style={{marginLeft:'auto', display: 'flex', gap: '10px'}}>
+                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                                <FaFacebook style={{marginLeft:'90px', gap: '10px'}} size={30} color="#4267B2" />
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                                <FaInstagram style={{marginRight:'5px', display: 'flex', gap: '10px'}} size={30} color="#C13584" />
+                            </a>
+                            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                                <FaTwitter size={30} color="#1DA1F2" />
+                            </a>
+
+                        </div>
+                        
+                    
                     </div>
-                    <img src={imageSrc3} alt="Facebook" className="face" />
-                    <br />
-                    <img src={imageSrc4} alt="Instagram" className="insta" />
-                    <br />
-                    <br />
-                    <img src={imageSrc5} alt="Twitter" className="twit" />
+                    <div className="center-section">
+                        <h5>Informations de contact</h5>
+                        <br/>
+                        <br/>
+                        <p><FaMapMarkerAlt /> Aeroport d'Ottawa, Ottawa Canada</p>
+                        <p><FaPhone />  613-555-5555</p>
+                        <p><FontAwesomeIcon icon={faEnvelope}/>  skyaviationclub@gmail.com</p>
+                    
+                    </div>
+                    <div className="right-section">
+                        <h5>Nos Horaires d'ouverture</h5>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <p>Ouvert du Lundi au Samedi de 9h à 16h</p>
+                    </div>
                 </div>
-                <div className="center-section">
-                    <h5>Informations de contact</h5>
-                    <br />
-                    <br />
-                    <p>Localisation: Aeroport d'Ottawa, Ottawa Canada</p>
-                    <p>Téléphone: 613-555-5555</p>
-                    <p>Email: skyaviationclub@gmail.com</p>
-                </div>
-                <div className="right-section">
-                    <h5>Nos horaires d'ouverture</h5>
-                    <br />
-                    <br />
-                    <br />
-                    <p>Ouvert du Lundi au Samedi de 9h à 16h</p>
-                </div>
-            </div>
+
+
+        
             <Modal show={showCart} onHide={handleCloseCart}>
                 <Modal.Header closeButton>
                     <Modal.Title>Panier</Modal.Title>

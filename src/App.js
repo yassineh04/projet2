@@ -14,6 +14,7 @@ import Passer from './components/Passer';
 import Planifier from './components/Planifier';
 import Sujet1 from './components/Sujet1';
 import Sujet2 from './components/Sujet2';
+import './i18n';
 import { BrowserRouter as Router, Route, Switch, BrowserRouter, Routes } from 'react-router-dom';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/planifier" element={<Planifier/>}/>
         <Route path="/sujet1" element={<Sujet1/>}/>
         <Route path="/sujet2" element={<Sujet2/>}/>
+        <Route path="/i18n" element={<i18n/>}/>
         
       </Routes>
     </BrowserRouter>
